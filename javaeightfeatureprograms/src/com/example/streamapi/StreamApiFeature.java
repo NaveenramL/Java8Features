@@ -42,15 +42,15 @@ public class StreamApiFeature {
 		System.out.println("Printing the car names : "+Arrays.toString(carsArray));
 		
 		List<Integer> numbers = Arrays.asList(10,23,34,56,89,96,101);
-		System.out.println(numbers.stream().min(Integer::compare).get());
-		System.out.println(numbers.stream().max(Integer::compare).get());
+		System.out.println(numbers.stream().min(Integer::compare).get()); // Returns the minimum element of this stream 
+		System.out.println(numbers.stream().max(Integer::compare).get()); // Returns the maximum element of this stream 
 		System.out.println(numbers.stream().count()); // prints the total count of the input numbers in the list
-		System.out.println(numbers.stream().anyMatch(i -> i%2 == 0));
-		System.out.println(numbers.stream().allMatch(i -> i%2 == 0));
-		System.out.println(numbers.stream().noneMatch(i -> i%2 == 0));
+		System.out.println(numbers.stream().anyMatch(i -> i%2 == 0)); // true if any elements of the stream match the provided Predicate, otherwise false
+		System.out.println(numbers.stream().allMatch(i -> i%2 == 0)); // true if either all elements of the stream match the provided Predicate or the stream is empty, otherwise false
+		System.out.println(numbers.stream().noneMatch(i -> i%2 == 0)); // true if either no elements of the stream match the provided Predicate or the stream is empty, otherwise f
 		
 		Stream<Double> randomStream = Stream.generate(Math::random);
-//		randomStream.forEach(System.out::println);
+		randomStream.forEach(System.out::println); // will generate Random numbers in the double datatype format
 		
 		Stream<Integer> example = Stream.iterate(1,i->i<10,i->i*2);
 		example.forEach(System.out::println);
